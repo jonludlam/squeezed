@@ -18,6 +18,13 @@
 open Pervasiveext
 open Squeeze
 
+let debug_oc = ref stderr
+let write x =
+  output_string !debug_oc (Printf.sprintf "[squeeze_test] %s" x);
+  output_string !debug_oc "\n";
+  flush !debug_oc
+let debug fmt = Printf.ksprintf write fmt
+
 (**
 	Computes the memory_actual delta for a VM assuming the balloon driver
 	responds at a given speed. Warning: make sure the balloon_rate * time_passed

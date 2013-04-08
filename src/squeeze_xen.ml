@@ -28,8 +28,7 @@ open Stringext
 open Fun
 
 module M = Debug.Make(struct let name = "memory" end)
-let debug = Squeeze.debug
-let error = Squeeze.error 
+open M
 
 let _initial_reservation = "/memory/initial-reservation"  (* immutable *)
 let _target              = "/memory/target"               (* immutable *)
